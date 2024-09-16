@@ -20,15 +20,15 @@ public class ConsultaController {
     private ConsultaService consultaService;
 
     @PostMapping
-    public ResponseEntity<Consulta> cadastrarConsulta(@RequestBody Consulta consulta){
+    public ResponseEntity<Consulta> cadastrarConsulta(@RequestBody Consulta consulta) {
         Consulta novaConsulta = consultaService.cadastrarConsulta(consulta);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
                 .buildAndExpand(novaConsulta.getIdConsulta()).toUri();
-        return ResponseEntity.status(HttpStatus.CREATED).body(novaConsulta);
-
-//    @PostMapping
-//    public ResponseEntity<Consulta> cadastrarUsuario(@RequestBody Consulta consulta) {
-//        Consulta novaConsulta = consultaService.cadastrarConsulta(consulta);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(novaConsulta);
-//    }
+        return ResponseEntity.created(uri).body(novaConsulta);
+    }
+    //    @PostMapping
+    //    public ResponseEntity<Consulta> cadastrarUsuario(@RequestBody Consulta consulta) {
+    //        Consulta novaConsulta = consultaService.cadastrarConsulta(consulta);
+    //        return ResponseEntity.status(HttpStatus.CREATED).body(novaConsulta);
+    //    }
 }
