@@ -1,11 +1,13 @@
 package br.com.edgarneto.medicalconsult.usuario.models;
 
+import br.com.edgarneto.medicalconsult.consulta.models.Consulta;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Getter
@@ -28,7 +30,11 @@ public class Usuario {
     private String telefone;
     @Column(name = "DATA_NASCIMENTO")
     private Date dataNascimento;
-    //private Permissao permissao;
+    @Column(name = "PERMISSAO")
+    private Permissao permissao;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Consulta> consulta;
 }
 
 

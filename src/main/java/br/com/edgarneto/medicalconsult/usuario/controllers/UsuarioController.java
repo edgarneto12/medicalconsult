@@ -17,9 +17,6 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    //public Usuario salvar(@RequestBody Usuario usuario) {
-      //  return usuarioService.salvar(usuario);
-    //}
     @PostMapping
     public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
         Usuario novoUsusario = usuarioService.cadastrarUsuario(usuario);
