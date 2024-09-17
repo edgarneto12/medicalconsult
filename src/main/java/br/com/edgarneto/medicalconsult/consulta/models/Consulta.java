@@ -27,6 +27,6 @@ public class Consulta {
     private String especialidade;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name = "id_Usuario")
     private Usuario usuario;
 }

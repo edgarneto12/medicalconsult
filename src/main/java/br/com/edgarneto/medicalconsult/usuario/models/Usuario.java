@@ -1,6 +1,7 @@
 package br.com.edgarneto.medicalconsult.usuario.models;
 
 import br.com.edgarneto.medicalconsult.consulta.models.Consulta;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -33,8 +34,9 @@ public class Usuario {
     @Column(name = "PERMISSAO")
     private Permissao permissao;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Consulta> consulta;
+    private List<Consulta> consultas;
 }
 
 
