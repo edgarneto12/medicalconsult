@@ -1,6 +1,5 @@
 package br.com.edgarneto.medicalconsult.usuario.services;
 
-import br.com.edgarneto.medicalconsult.consulta.services.ConsultaService;
 import br.com.edgarneto.medicalconsult.usuario.models.Usuario;
 import br.com.edgarneto.medicalconsult.usuario.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
@@ -16,8 +15,6 @@ import java.util.List;
 public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
-    @Autowired
-    private ConsultaService consultaService;
 
     public Usuario cadastrarUsuario(Usuario usuario) {
         usuario.setIdUsuario(null);

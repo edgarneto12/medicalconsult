@@ -17,6 +17,6 @@ spring:
     password: ''
     driver-class-name: org.h2.Driver
     username: sa
-    url: jdbc:h2:mem:marcasus
+    url: jdbc:h2:file:~/medicalconsult
 server:
     port: ${port:8080}
