@@ -17,7 +17,6 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     public Usuario cadastrarUsuario(Usuario usuario) {
-        usuario.setIdUsuario(null);
         return usuarioRepository.save(usuario);
     }
 

@@ -20,7 +20,7 @@ public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CONSULTA")
-    private Integer idConsulta;
+    private Long idConsulta;
     @Column(name = "DATA_CONSULTA")
     private Date dataConsulta;
     @Column(name = "PROFISSIONAL")
