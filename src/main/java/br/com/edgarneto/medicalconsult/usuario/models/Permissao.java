@@ -1,8 +1,9 @@
 package br.com.edgarneto.medicalconsult.usuario.models;
 
 public enum Permissao {
-    ADMIN("ADMIN"),
-    SECRETARIO("SECRETARIO");
+    ADMIN("ADMIN"), //Faz tudo
+    SECRETARIO("SECRETARIO"), // Pode criar mas nao pode deletar
+    PACIENTE("PACIENTE"); // Pode ver as proprias consultas
 
     private final String descricao;
 
