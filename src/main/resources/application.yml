@@ -6,4 +6,4 @@ java:
     version: '21'
 springdoc:
   api-docs:
-    path: /bolsonaro
+    path: /medicalConsult

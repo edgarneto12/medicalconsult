@@ -7,13 +7,13 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
-import java.util.List;
+
 
 @Data
 @Getter
 @Setter
 @Entity
-@Table(name = "Consultas")
+@Table(name = "CONSULTAS")
 public class Consulta {
 
     @JsonIgnore
@@ -29,6 +29,6 @@ public class Consulta {
     private String especialidade;
 
     @ManyToOne
-    @JoinColumn(name = "id_Usuario")
+    @JoinColumn(name = "ID_USUARIO")
     private Usuario usuario;
 }
