@@ -1,14 +1,24 @@
-FROM maven:3.9.7-eclipse-temurin-21 AS builder
-WORKDIR /app
-COPY pom.xml /app
-COPY src /app/src
-RUN mvn clean package -DskipTests
+# Etapa 1: Build com JDK 21
+FROM eclipse-temurin:21-jdk-alpine AS build
 
-FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY --from=builder /app/target/medicalconsult-*.jar app.jar
 
+# Copia os arquivos do projeto para dentro do container
+COPY . .
+
+# Executa o build Maven usando o Maven Wrapper (./mvnw)
+RUN ./mvnw clean package -DskipTests
+
+# Etapa 2: Executar a aplicação
+FROM eclipse-temurin:21-jre-alpine
+
+WORKDIR /app
+
+# Copia o .jar gerado na etapa de build para a imagem final
+COPY --from=build /app/target/medicalconsult-0.0.1-SNAPSHOT.jar app.jar
+
+# Expõe a porta (ajuste conforme sua aplicação)
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
 
-LABEL authors="edgar"
+# Comando para rodar a aplicação
+ENTRYPOINT ["java", "-jar", "app.jar"]
